@@ -16,6 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import (
+    PostListView,
+    PostTagListView,
+    PostDetailView,
+    PostCreateView,
+    PostUpdateView,
+    PostDeleteView
+)
+
+app_name = "post"
 
 urlpatterns = [
+    path('', PostListView.as_view(), name='list'),
+
+    path('tag/<slug:tag>/', PostTagListView.as_view(), name='tag'),
+
+    path('photo/<int:pk>/', PostDetailView.as_view(), name='detail'),
+
+    path('photo/create/', PostCreateView.as_view(), name='create'),
+
+    path('photo/<int:pk>/update/', PostUpdateView.as_view(), name='update'),
+
+    path('photo/<int:pk>/delete/', PostDeleteView.as_view(), name='delete'),
 ]

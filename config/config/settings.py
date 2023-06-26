@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'taggit',
-    'postcard'
+    'postcard',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,20 @@ TAGGIT_CASE_INSENSITIVE = True
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+TEMPLATES = [
+    {
+        # Options ..
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        # More options
+    },
+]
+
+# Other settings ...
+
+# Django Authentication
+LOGIN_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'post:list'
+
+LOGOUT_REDIRECT_URL = 'post:list'
