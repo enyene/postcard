@@ -48,7 +48,7 @@ img{
   </style>
   {% for p in post %}
   <div class="col-lg-3 col-md-4 col-xs-6">
-    <a href="{% url 'post:detail' post.id %}" class="d-block mb-4 h-100">
+    <!-- <a href="{% url 'post:detail' post.id %}" class="d-block mb-4 h-100"> -->
       <span class="hovertext" data-hover="{{post.title}}">
         <img src="{{posts.image.url}}" class="img-fluid rounded" alt="{{posts.title}}"  /> 
       </span>
