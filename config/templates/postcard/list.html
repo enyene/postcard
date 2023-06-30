@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+<div class="container">
+  <!-- <form method='GET'>
+    <input type='text' name='q' value='{{ request.GET.q }}'>
+    <input  class="button" type='submit' value="Search photos">
+  </form> -->
+</div>
+<div class="row">
+  <style>
+    img:hover {
+      opacity: 0.5;
+    
+    }
+    .hovertext {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+img{
+  width: 500px;
+  height: 500px;
+  border: burlywood solid 1px;
+}
+  </style>
+  {% for photo in photos %}
+  <div class="col-lg-3 col-md-4 col-xs-6">
+    <a href="{% url 'post:detail' post.slug %}" class="d-block mb-4 h-100">
+      <span class="hovertext" data-hover="{{post.title}}">
+        <img src="{{post.image.url}}" class="img-fluid rounded" alt="{{post.title}}"  /> 
+      </span>
+      
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock body %}

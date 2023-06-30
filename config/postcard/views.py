@@ -37,9 +37,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
 
-    fields = ['title', 'description', 'image', 'tags']
+    fields = ['title', 'image', 'tags']
 
-    template_name = 'photoapp/create.html'
+    template_name = 'postcard/create.html'
 
     success_url = reverse_lazy('photo:list')
 
@@ -59,7 +59,7 @@ class UserIsSubmitter(UserPassesTestMixin):
     def test_func(self):
 
         if self.request.user.is_authenticated:
-            return self.request.user == self.get_photo().submitter
+            return self.request.user == self.get_photo().user
         else:
             raise PermissionDenied('Sorry you are not allowed here')
         
@@ -69,7 +69,7 @@ class PostUpdateView(UserIsSubmitter, UpdateView):
 
     model = Post
 
-    fields = ['title', 'description', 'tags']
+    fields = ['title',  'tags']
 
     success_url = reverse_lazy('post:list')
 

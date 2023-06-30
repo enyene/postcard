@@ -133,7 +133,10 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 
 
 # Other settings ...
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+STATIC_URL = 'static/'
+STATIC_FILES_DIRS = [BASE_DIR/'static']
+STATIC_ROOT = BASE_DIR/'staticfiles'
 # Django Authentication
 LOGIN_URL = 'user:login'
 LOGIN_REDIRECT_URL = 'post:list'
