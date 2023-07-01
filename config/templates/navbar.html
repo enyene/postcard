@@ -8,7 +8,7 @@
             <ul id="header-links">
                 <li><img src="{% static 'postcard/assets/icons/bx-search-alt-2.svg' %}" alt="Search icon"></li>
                 <li><a href="{% url 'post:list' %}">Explore</a></li>
-                <li><a href="">Blog</a></li>
+                <li><a href="{% url 'blog:home' %}">Blog</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="{% url 'post:create' %}">Submit</a></li>
                 <li><img src="{% static 'postcard/assets/icons/bxs-user.svg' %}" alt="User icon"></li>

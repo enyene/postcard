@@ -1,0 +1,41 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container ">
+    {% for item in entry %}
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                  <img  src="{% static 'postcard/assets/icons/pie.jpg' %}" height="50%" width="55%">
+                  <span class="card-title">{{item.title}}</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light black pulse"><i class="material-icons">confirmation_number</i></a>
+                </div>
+                <div class="card-content">
+                  
+                </div>
+              </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-lg text-gray-600">
+          no posts at the moment
+      </p>
+      {% endfor %}
+
+  </div>
+ 
+  
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <script>
+     document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('.sidenav');
+var instances = M.Sidenav.init(elems, options);
+});
+$(document).ready(function(){
+$('.sidenav').sidenav();
+});
+ </script>
+{% endblock body %}
