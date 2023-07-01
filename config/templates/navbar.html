@@ -2,13 +2,13 @@
 {% load static %}
     <header>
         <div id="logo">    
-        <a href=><H1>PostCard</H1></a>
+        <a><H1>PostCard</H1></a>
         </div>
         <div id="header-links-cont">
             <ul id="header-links">
                 <li><img src="{% static 'postcard/assets/icons/bx-search-alt-2.svg' %}" alt="Search icon"></li>
-                <li><a href="">Explore</a></li>
-                <li><a href="">Studio</a></li>
+                <li><a href="{% url 'post:list' %}">Explore</a></li>
+                <li><a href="">Blog</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="{% url 'post:create' %}">Submit</a></li>
                 <li><img src="{% static 'postcard/assets/icons/bxs-user.svg' %}" alt="User icon"></li>
@@ -17,10 +17,6 @@
         </div>
     </header>
 
-    <section id="landing-photo">
-        <img src="{% static 'postcard/assets/icons/pdesign.jpg' %}" alt="" id="l-p-im">
-        <h1> Beautiful photos of lovely Locations..</h1>
-        <p>Trending: <span style="opacity: .5;">bahamas palms valgos, lapos.</span></p>
-    </section>
+  
     </div>
     </nav>

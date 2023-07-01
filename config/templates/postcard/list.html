@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% block body %}
 <div class="container">
   <!-- <form method='GET'>
@@ -46,6 +46,11 @@ img{
   border: burlywood solid 1px;
 } 
 </style>
+<section id="landing-photo">
+  <img src="{% static 'postcard/assets/icons/pdesign.jpg' %}" alt="" id="l-p-im">
+  <h1> Beautiful photos of lovely Locations..</h1>
+  <p>Trending: <span style="opacity: .5;">bahamas palms valgos, lapos.</span></p>
+</section>
   <section id="photos">
   <div id="p-button-cont">
     <button class="photos-grid-button" style="border: none; border-bottom: 3px solid #121212;">Featured</button>

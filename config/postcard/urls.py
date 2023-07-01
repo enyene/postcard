@@ -30,8 +30,9 @@ app_name = "post"
 urlpatterns = [
     path('', PostListView.as_view(), name='list'),
     path('tag/<slug:tag>/', PostTagListView.as_view(), name='tag'),
-    path('photo/<slug:slug>/', PostDetailView.as_view(), name='detail'),
     path('photo/create/', PostCreateView.as_view(), name='create'),
+    path('photo/<slug:slug>/', PostDetailView.as_view(), name='detail'),
+
     
     path('photo/<slug:slug>/update/', PostUpdateView.as_view(), name='update'),
 
