@@ -7,7 +7,7 @@
     <input  class="button" type='submit' value="Search photos">
   </form> -->
 </div>
-<div class="row">
+ <div class="row">
   <style>
     img:hover {
       opacity: 0.5;
@@ -44,18 +44,28 @@ img{
   width: 500px;
   height: 500px;
   border: burlywood solid 1px;
-}
-  </style>
-  {% for p in post %}
-  <div class="col-lg-3 col-md-4 col-xs-6">
-    <!-- <a href="{% url 'post:detail' post.id %}" class="d-block mb-4 h-100"> -->
-      <span class="hovertext" data-hover="{{post.title}}">
-        <img src="{{posts.image.url}}" class="img-fluid rounded" alt="{{posts.title}}"  /> 
-      </span>
-      
-    </a>
+} 
+</style>
+  <section id="photos">
+  <div id="p-button-cont">
+    <button class="photos-grid-button" style="border: none; border-bottom: 3px solid #121212;">Featured</button>
+    <button class="photos-grid-button">Popular</button>
+    <button class="photos-grid-button">All</button>
   </div>
-  {% endfor %}
+  
+  
+    <div id="photos-grid">
+      {% for post in posts %}
+      <a href="{% url 'post:detail' post.slug %}">
+        <span class="hovertext" data-hover="{{post.user.username}}">
+        <img src="{{post.image.url}}" alt="{{post.title}}">
+      </a>
+      {% endfor %}
+    </div>
+   
+</section>
+  
+</div>
 </div>
 
 

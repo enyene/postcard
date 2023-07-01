@@ -10,7 +10,7 @@ from .models import Post
 
 class PostListView(ListView):
     model = Post
-    context_object_name = "post"
+    context_object_name = "posts"
     template_name = "postcard/list.html"
 
 class PostTagListView(ListView):
@@ -37,15 +37,15 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
 
-    fields = ['title', 'image', 'tags']
+    fields = ['title', 'image', 'tags',"location"]
 
     template_name = 'postcard/create.html'
 
-    success_url = reverse_lazy('photo:list')
+    success_url = reverse_lazy('post:list')
 
     def form_valid(self, form):
 
-        form.instance.submitter = self.request.user
+        form.instance.user = self.request.user
 
         return super().form_valid(form)
     

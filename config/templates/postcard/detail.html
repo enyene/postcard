@@ -27,8 +27,8 @@
 <script>
   let lat,lon;
 mapboxgl.accessToken = 'pk.eyJ1IjoiaWVueWVuZSIsImEiOiJjbDVwYzV3bW0wcmp6M2lvZWRmamN4cnV3In0.G3yaMn224wCZg4kS1CMbnQ';
-lon = {{ photo.lon }};
-lat = {{ photo.lat }};
+lon = {{ post.lon }};
+lat = {{ post.lat }};
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -49,7 +49,7 @@ const marker = new mapboxgl.Marker({
     .addTo(map);
 </script>
 </div>
-    <p>{{ photo.description }}</p>
+    <p>{{ post.location }}</p>
   </div>
   
 
