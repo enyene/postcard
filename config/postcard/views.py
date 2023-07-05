@@ -1,4 +1,6 @@
 
+from datetime import datetime
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
@@ -80,3 +82,20 @@ class PostDeleteView(UserIsSubmitter, DeleteView):
     model = Post
 
     success_url = reverse_lazy('post:list') 
+
+def index(request):
+    now = datetime.now()
+    html = f'''
+    <html>
+        <body>
+            <h1>Hello from PostCard!</h1>
+            <p>The current time is { now }.</p>
+            <h2> Share pictures of nice places you have been to </h2>
+             <h2> Visit nice places close by </h2>
+        </body>
+    </html>
+    '''
+    return HttpResponse(html)
+
+def home(request):
+    return render(request,"postcard/index.html")
